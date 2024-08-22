@@ -1,0 +1,8 @@
+.button-outer-container {
+    margin: auto;
+    width: 800px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
