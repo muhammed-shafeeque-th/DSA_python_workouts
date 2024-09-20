@@ -12,3 +12,5 @@ def binaryRecursionSearch(arr, target, left, right):
 
 
 binaryRecursionSearch(arr, 99, 0, len(arr)-1)
+binaryRecursionSearch(arr, 9, 0, len(arr)-1)
+binaryRecursionSearch(arr, -1, 0, len(arr)-1)
