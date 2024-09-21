@@ -105,10 +105,16 @@ class LinkedList:
                 return
             prev = node
             node = node.next
-
+        # Return if the value is not exist with a print statement
         return print('value does not found the list')
 
-
+    def to_list(self):
+        lst = []
+        node = self.head
+        while node:
+            lst.append(node.value)
+            node = node.next
+        return lst
 
 
 
