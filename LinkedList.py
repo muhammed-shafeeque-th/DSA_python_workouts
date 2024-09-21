@@ -91,6 +91,25 @@ class LinkedList:
             node = node.next
         print("None")
 
+    def delete_node(self, value: int) -> None:
+        if not self.head:
+            return print('LL is empty')
+        if value == self.head.value:
+            self.head = self.head.next
+            return
+        prev = None
+        node = self.head
+        while node:
+            if node.value == value:
+                prev.next = node.next
+                return
+            prev = node
+            node = node.next
+
+        return print('value does not found the list')
+
+
+
 
 
 
@@ -100,14 +119,16 @@ for x in arr:
     ll.insert_at_end(x)
 
 ll.print()
-ll.print()
-ll.insert_at_beggning(10)
-ll.print()
+# ll.insert_at_beggning(10)
+# ll.print()
 print(ll.find_middle())
-ll.insert_at_position(4, 1 )
+ll.insert_at_position(4, 6 )
 ll.print()
-print(ll.find_middle())
+# print(ll.find_middle())
 ll.reverse()
+ll.print()
+
+ll.delete_node(54)
 ll.print()
 
 
