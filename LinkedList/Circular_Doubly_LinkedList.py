@@ -1,6 +1,22 @@
 #Circular Doubly LinkedList
 
 class CircularDoublyLinkedList:
+    """"
+    Circular Doubly LinkedList workout
+     --Covered almost all topics(*)
+        -- Add not at end -> None
+        -- Add not at beginning -> None
+        -- Insert at specific position -> None
+        -- Check if a value exist in the list or not -> bool
+        -- Print forward -> None
+        -- Print backward -> None
+        -- Delete Node -> None
+        -- Reverse list -> None
+        -- Find middle value -> _Node
+
+     """
+
+
     class _Node:
         def __init__(self, value):
             self._value = value
@@ -13,7 +29,7 @@ class CircularDoublyLinkedList:
 
 
 
-    def insert_at_beggning(self, value):
+    def insert_at_beggning(self, value: _Node) -> None:
         node = self._Node(value)
         node._next = self._head
         self._head._prev = node
@@ -21,7 +37,7 @@ class CircularDoublyLinkedList:
         self._tail._next = self._head
         self._head._prev = self._tail
 
-    def insert_at_end(self, value):
+    def insert_at_end(self, value: _Node) -> None:
         node = self._Node(value)
         if not self._head and not self._tail:
             self._head = node
@@ -34,7 +50,7 @@ class CircularDoublyLinkedList:
         self._head._prev = self._tail
 
 
-    def insert_at_position(self, value, pos):
+    def insert_at_position(self, value: _Node, pos: int) -> None:
         node = self._Node(value)
         if not self._head:
             self._tail = node
@@ -59,7 +75,7 @@ class CircularDoublyLinkedList:
             node._prev = curr
             return
 
-    def is_exist(self, value):
+    def is_exist(self, value: _Node) -> bool:
         node = self._head
         while node:
             if node.value == value:
@@ -67,7 +83,7 @@ class CircularDoublyLinkedList:
             node = node._next
         return False
 
-    def find_middle(self):
+    def find_middle(self) -> _Node or None:
         slow = self._head
         fast = self._head._next
         if not self._head:
@@ -80,19 +96,21 @@ class CircularDoublyLinkedList:
 
         return slow._value
 
-    def reverse(self):
+    def reverse(self) -> None:
+        # Handle the edge Case
+        if self._head is None :
+            return
         curr = self._head
         nextt = None
-        prev = self._head._prev
         while curr != self._tail:
             print(curr._next._value, curr._prev._value)
             nextt = curr._next
-            curr._next, curr._prev = curr._prev, curr._next
+            curr._next, curr._prev = curr._prev, nextt
             curr = nextt
-        self._head, self._tail = self._tail , self._head
+        curr._next, curr._prev = curr._prev, nextt
 
 
-    def print_forward(self):
+    def print_forward(self) -> None:
         if not self._head:
              return print('Empty LL')
         node = self._head
@@ -101,7 +119,7 @@ class CircularDoublyLinkedList:
             node = node._next
         print(node._value ," -> None")
 
-    def is_circular(self):
+    def is_circular(self) -> bool:
         slow = self._head
         fast = self._head._next
         while slow != fast:
@@ -109,10 +127,9 @@ class CircularDoublyLinkedList:
                 return False
             slow = slow._next
             fast = fast._next._next
-
         return True
 
-    def print_backward(self):
+    def print_backward(self) -> None:
         if not self._tail:
              return print('Empty LL')
         node = self._tail
@@ -142,7 +159,8 @@ class CircularDoublyLinkedList:
             node = node._next
         # Return if the value is not exist with a print statement
         return print('value does not found the list')
-
+    def __str__(self):
+        str(self.print_forward())
 
 
 ll = CircularDoublyLinkedList()
@@ -156,11 +174,11 @@ for x in arr:
 # ll.print_forward()
 # ll.insert_at_position(4, 6 )
 ll.print_forward()
-ll.print_backward()
-print(ll.find_middle())
-# ll.reverse()
+# ll.print_backward()
+# print(ll.find_middle())
+ll.reverse()
 ll.print_forward()
-print(ll.is_circular())
+# print(ll.is_circular())
 # #
 # ll.delete_node(54)
 # ll.print_forward()
