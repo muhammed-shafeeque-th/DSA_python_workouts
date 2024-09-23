@@ -40,7 +40,21 @@ class Stack:
 
     def peak(self) -> int:
         """Returns the top value from stack"""
-        return self._top.val
+        return self._top._val
+
+    def get_stack(self) -> list:
+        """Return Stack values in list"""
+        lst = []
+        curr = self._top
+        while curr:
+            lst.append(curr._val)
+            curr = curr._next
+        return lst
+
+    def size(self) -> int:
+        """Returns size of the stack"""
+        return self._size
+
 
 
 
