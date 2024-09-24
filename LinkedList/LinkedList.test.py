@@ -1,10 +1,11 @@
 import unittest
-from  LinkedList import *
+from LinkedList import *
 
 class TestLinkedList(unittest.TestCase):
 
     def setUp(self) -> None:
         self.ll = LinkedList()
+
     def test_insert(self) -> None:
         self.ll.insert_at_end(24)
         self.ll.insert_at_end(54)
