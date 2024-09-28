@@ -1,7 +1,7 @@
 class Stack:
     """This class has stack implementation with list with size delimiter"""
     def __init__(self, size: int) -> None:
-        """Initialize the empty stack"""
+        """Initialize the empty queues for implement stack using stack"""
         self._queue = []
         self._extra_queue = []
         self._size = size
@@ -35,8 +35,7 @@ class Stack:
         """Return True if stack is empty else False"""
         return len(self._queue) == 0
 
-
-    def get_queue(self):
+    def get_stack(self):
         """Return protected stack for testing purpose """
         return self._queue
 
