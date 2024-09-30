@@ -21,7 +21,7 @@ class Queue:
         elem = self._extra_stack.pop()
         while self._extra_stack:
             self._stack.append(self._extra_stack.pop())
-        return elem._val
+        return elem
 
     def peak(self):
         """Return last element in stack """
