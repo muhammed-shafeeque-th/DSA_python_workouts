@@ -1,8 +1,6 @@
 import unittest
 from binary_search_iteration import *
 
-
-
 class TestLinkedList(unittest.TestCase):
 
     def setUp(self) -> None:
