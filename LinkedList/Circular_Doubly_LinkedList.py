@@ -4,8 +4,8 @@ class CircularDoublyLinkedList:
     """"
     Circular Doubly LinkedList workout
      --Covered almost all topics(*)
-        -- Add not at end -> None
-        -- Add not at beginning -> None
+        -- Add node at end -> None
+        -- Add node at beginning -> None
         -- Insert at specific position -> None
         -- Check if a value exist in the list or not -> bool
         -- Print forward -> None
