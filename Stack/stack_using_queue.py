@@ -1,15 +1,15 @@
 class Stack:
     """This class has stack implementation with list with size delimiter"""
-    def __init__(self, size: int) -> None:
+    def __init__(self, capacity: int) -> None:
         """Initialize the empty queues for implement stack using stack"""
         self._queue = []
         self._extra_queue = []
-        self._size = size
+        self._capacity = capacity
 
     def push(self, value) -> None:
         """Push value to stack"""
-        if self._size < len(self._queue):
-            raise Exception('stack overflow')
+        if self._capacity <= len(self._queue):
+            raise OverflowError('stack overflow')
         self._extra_queue.append(value)
         while self._queue:
             self._extra_queue.append(self._queue.pop(0))
@@ -19,7 +19,7 @@ class Stack:
     def pop(self):
         """Pop element from stack and returns it"""
         if len(self._queue) == 0:
-            raise Exception('Can not pop from empty stack')
+            raise IndexError('Can not pop from empty stack')
         elm = self._queue.pop(0)
         return elm
 
