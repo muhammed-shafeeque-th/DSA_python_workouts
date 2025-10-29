@@ -1,21 +1,21 @@
 class Queue:
-    """This class has Queue implementation with list with size delimiter"""
-    def __init__(self, size: int) -> None:
+    """This class has Queue implementation with list with capacity delimiter"""
+    def __init__(self, capacity: int) -> None:
         """Initialize the empty queue"""
         self._stack = []
         self._extra_stack = []
-        self._size = size
+        self._capacity= capacity
 
     def enqueue(self, value) -> None:
         """Push value to queue"""
-        if self._size < len(self._stack):
-            raise Exception('queue limit overflow')
+        if self._capacity< len(self._stack):
+            raise OverflowError('queue limit overflow')
         self._stack.append(value)
 
     def dequeue(self) -> int:
         """dequeue element from queue and returns it"""
         if len(self._stack) == 0:
-            raise Exception('Can not pop from empty queue')
+            raise IndexError('Can not pop from empty queue')
         while self._stack:
             self._extra_stack.append(self._stack.pop())
         elem = self._extra_stack.pop()
@@ -27,8 +27,8 @@ class Queue:
         """Return last element in stack """
         return self._stack[0]
 
-    def size(self) -> int:
-        """Returns size of the stack"""
+    def capacity(self) -> int:
+        """Returns capacity of the stack"""
         return len(self._stack)
 
     def is_empty(self) -> bool:
