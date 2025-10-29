@@ -8,7 +8,7 @@ class Queue:
 
     def enqueue(self, value) -> None:
         """Push value to queue"""
-        if self._capacity< len(self._stack):
+        if self._capacity <= len(self._stack):
             raise OverflowError('queue limit overflow')
         self._stack.append(value)
 
