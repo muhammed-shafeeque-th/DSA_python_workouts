@@ -23,8 +23,10 @@ class Queue:
             self._stack.append(self._extra_stack.pop())
         return elem
 
-    def peak(self):
+    def peek(self):
         """Return last element in stack """
+        if len(self._stack) == 0:
+            raise IndexError('Can peek from empty queue')
         return self._stack[0]
 
     def capacity(self) -> int:
@@ -38,6 +40,6 @@ class Queue:
 
     def get_queue(self):
         """Return protected stack for testing purpose """
-        return self._stack
+        return list(self._stack)
 
 
