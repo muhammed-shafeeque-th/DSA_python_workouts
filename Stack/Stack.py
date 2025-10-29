@@ -7,7 +7,7 @@ class Stack:
 
     def push(self, value) -> None:
         """Push value to stack"""
-        if self._size < len(self._stack):
+        if self._size <= len(self._stack):
             raise Exception('stack overflow')
         self._stack.append(value)
 
